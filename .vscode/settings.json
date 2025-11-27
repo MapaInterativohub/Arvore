@@ -1,0 +1,13 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "java.home": "C:\\Program Files\\Java\\jdk-23",
+    "java.debug.settings.console": "internalConsole",
+    "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.editor.empty.hint": "hidden",
+    "jdk.telemetry.enabled": true,
+    "java.project.referencedLibraries": [
+        "C:/Program Files/Java/javafx-sdk-25.0.1/lib/**/*.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}

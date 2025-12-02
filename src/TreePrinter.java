@@ -10,7 +10,7 @@ public class TreePrinter {
 
     /**
      * Imprime a árvore iniciando por um nó específico.
-     * Esse método é útil se quisermos imprimir subárvores.
+     * 
      */
     public static <T> void printNode(BinaryTree.Node<T> root) {
         // Chama a função recursiva com prefixo vazio e indicando que

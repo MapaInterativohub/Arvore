@@ -3,13 +3,21 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
+    // Scanner para entrada de dados pelo usuário
     private static final Scanner scanner = new Scanner(System.in);
+
+    // Árvore binária que armazena objetos Person
     private static final BinaryTree<Person> tree = new BinaryTree<>();
 
     public static void main(String[] args) {
-        iniciarMenu();
+        iniciarMenu(); // Inicia o menu principal
     }
 
+    // -------------------- MENU PRINCIPAL --------------------
+
+    /**
+     * Exibe o menu e controla o loop principal do programa.
+     */
     public static void iniciarMenu() {
         while (true) {
             System.out.println("\n========== MENU DA ÁRVORE ==========");
@@ -25,21 +33,22 @@ public class ConsoleUI {
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
-            int op = lerInt();
+            int op = lerInt(); // Lê opção do usuário
 
+            // Execução conforme a opção escolhida
             switch (op) {
                 case 1 -> inserir();
                 case 2 -> buscar();
                 case 3 -> remover();
                 case 4 -> percursos();
-                case 5 -> TreePrinter.printTree(tree);
+                case 5 -> TreePrinter.printTree(tree); // Imprime árvore graficamente
                 case 6 -> System.out.println("Altura: " + tree.height());
                 case 7 -> profundidade();
                 case 8 -> caminhoAte();
                 case 9 -> caminhoEntre();
                 case 0 -> {
                     System.out.println("Encerrando...");
-                    return;
+                    return; // Sai do programa
                 }
                 default -> System.out.println("Opção inválida!");
             }
@@ -48,6 +57,9 @@ public class ConsoleUI {
 
     // -------------------- Funções do menu --------------------
 
+    /**
+     * Lê dados de uma pessoa e insere na árvore.
+     */
     private static void inserir() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -55,23 +67,30 @@ public class ConsoleUI {
         System.out.print("Idade: ");
         int idade = lerInt();
 
-        tree.insert(new Person(nome, idade));
+        tree.insert(new Person(nome, idade)); // Insere na árvore
         System.out.println("Pessoa inserida!");
     }
 
+    /**
+     * Busca uma pessoa na árvore.
+     */
     private static void buscar() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
+
         System.out.print("Idade: ");
-       
         int idade = lerInt();
 
         System.out.println("Encontrado: " + tree.contains(new Person(nome, idade)));
     }
 
+    /**
+     * Remove uma pessoa da árvore.
+     */
     private static void remover() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
+
         System.out.print("Idade: ");
         int idade = lerInt();
 
@@ -79,6 +98,10 @@ public class ConsoleUI {
         System.out.println("Remoção concluída (se existia).");
     }
 
+    /**
+     * Exibe as três travessias clássicas da árvore:
+     * in-order, pre-order e post-order.
+     */
     private static void percursos() {
         System.out.println("\nIn-ordem:");
         tree.inOrder();
@@ -90,18 +113,26 @@ public class ConsoleUI {
         tree.postOrder();
     }
 
+    /**
+     * Exibe a profundidade de um nó específico.
+     */
     private static void profundidade() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
+
         System.out.print("Idade: ");
         int idade = lerInt();
 
         System.out.println("Profundidade: " + tree.depth(new Person(nome, idade)));
     }
 
+    /**
+     * Mostra o caminho da raiz até o nó desejado.
+     */
     private static void caminhoAte() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
+
         System.out.print("Idade: ");
         int idade = lerInt();
 
@@ -109,7 +140,11 @@ public class ConsoleUI {
         System.out.println(caminho);
     }
 
+    /**
+     * Mostra o caminho entre dois nós da árvore.
+     */
     private static void caminhoEntre() {
+
         System.out.println("Primeira pessoa:");
         System.out.print("Nome: ");
         String n1 = scanner.nextLine();
@@ -127,6 +162,9 @@ public class ConsoleUI {
 
     // -------------------- Leitura segura --------------------
 
+    /**
+     * Lê um inteiro do usuário com validação contra valores inválidos.
+     */
     private static int lerInt() {
         while (true) {
             try {

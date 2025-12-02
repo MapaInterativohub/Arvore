@@ -8,7 +8,7 @@ import java.util.List;
  * - Suporta inserção, busca, remoção
  * - Suporta percursos (in-ordem, pré-ordem, pós-ordem)
  * - Calcula altura, profundidade
- * - Encontra caminhos e LCA (ancestral comum)
+ * - Encontra caminhos e LCA 
  * - Exibe a árvore em ASCII
  */
 public class BinaryTree<T extends Comparable<T>> {
